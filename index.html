@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mr.E Web Search Engine</title>
+    <title>Simple Search Engine</title>
     <style>
         /* Reset default browser margins and paddings */
         * {
@@ -94,20 +94,34 @@
 </head>
 <body>
     <div class="container">
-        <h1>Mr.E Web Search Engine</h1>
+        <h1>Simple Search Engine</h1>
         <div class="search-form">
             <input type="text" id="searchQuery" placeholder="Enter your search query...">
             <input type="button" value="Search" onclick="performSearch()">
         </div>
         <div id="searchResults" class="results"></div>
         <footer>
-            &copy; 2024 Mr.E Web. All rights reserved.
+            &copy; 2024 Simple Search Engine. All rights reserved.
         </footer>
     </div>
 
     <script>
+        // Sample dataset to search through
+        const dataset = [
+            'Apple Pie Recipe',
+            'Banana Bread Recipe',
+            'Cherry Tart Recipe',
+            'Date and Nut Bars',
+            'Eggplant Parmesan',
+            'Fig Jam Recipe',
+            'Gingerbread Cookies',
+            'Honey Glazed Carrots',
+            'Ice Cream Sundae Recipe',
+            'Jelly Donuts Recipe'
+        ];
+
         function performSearch() {
-            const query = document.getElementById('searchQuery').value.trim();
+            const query = document.getElementById('searchQuery').value.trim().toLowerCase();
             const resultsContainer = document.getElementById('searchResults');
 
             if (query === '') {
@@ -115,15 +129,17 @@
                 return;
             }
 
-            // Simulated search results
-            const results = [
-                `Result 1 for "${query}"`,
-                `Result 2 for "${query}"`,
-                `Result 3 for "${query}"`
-            ];
+            // Perform search
+            const results = dataset.filter(item => item.toLowerCase().includes(query));
 
-            resultsContainer.innerHTML = results.map(result => `<div>${result}</div>`).join('');
+            // Display search results
+            if (results.length > 0) {
+                resultsContainer.innerHTML = results.map(result => `<div>${result}</div>`).join('');
+            } else {
+                resultsContainer.innerHTML = '<p>No results found.</p>';
+            }
         }
     </script>
 </body>
 </html>
+
