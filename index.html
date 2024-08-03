@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simple Search Engine</title>
+    <title>Mr.E Web</title>
     <style>
         /* Reset default browser margins and paddings */
         * {
@@ -94,34 +94,24 @@
 </head>
 <body>
     <div class="container">
-        <h1>Simple Search Engine</h1>
+        <h1>Mr.E Web Search Engine</h1>
         <div class="search-form">
             <input type="text" id="searchQuery" placeholder="Enter your search query...">
             <input type="button" value="Search" onclick="performSearch()">
         </div>
         <div id="searchResults" class="results"></div>
         <footer>
-            &copy; 2024 Simple Search Engine. All rights reserved.
+            &copy; 2024 Mr.E Web Search Engine. All rights reserved.
         </footer>
     </div>
 
     <script>
-        // Sample dataset to search through
-        const dataset = [
-            'Apple Pie Recipe',
-            'Banana Bread Recipe',
-            'Cherry Tart Recipe',
-            'Date and Nut Bars',
-            'Eggplant Parmesan',
-            'Fig Jam Recipe',
-            'Gingerbread Cookies',
-            'Honey Glazed Carrots',
-            'Ice Cream Sundae Recipe',
-            'Jelly Donuts Recipe'
-        ];
+        // Replace with your own API key and Custom Search Engine ID
+        const API_KEY = 'AIzaSyABKTLh9aMIBBNFMJPb1WIISdi9nzL640g';
+        const SEARCH_ENGINE_ID = '1590502c0c7ff40ff';
 
         function performSearch() {
-            const query = document.getElementById('searchQuery').value.trim().toLowerCase();
+            const query = document.getElementById('searchQuery').value.trim();
             const resultsContainer = document.getElementById('searchResults');
 
             if (query === '') {
@@ -129,17 +119,27 @@
                 return;
             }
 
-            // Perform search
-            const results = dataset.filter(item => item.toLowerCase().includes(query));
+            const url = `https://www.googleapis.com/customsearch/v1?q=${encodeURIComponent(query)}&key=${API_KEY}&cx=${SEARCH_ENGINE_ID}`;
 
-            // Display search results
-            if (results.length > 0) {
-                resultsContainer.innerHTML = results.map(result => `<div>${result}</div>`).join('');
-            } else {
-                resultsContainer.innerHTML = '<p>No results found.</p>';
-            }
+            fetch(url)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.items && data.items.length > 0) {
+                        resultsContainer.innerHTML = data.items.map(item => `
+                            <div>
+                                <a href="${item.link}" target="_blank">${item.title}</a>
+                                <p>${item.snippet}</p>
+                            </div>
+                        `).join('');
+                    } else {
+                        resultsContainer.innerHTML = '<p>No results found.</p>';
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    resultsContainer.innerHTML = '<p>Error retrieving search results.</p>';
+                });
         }
     </script>
 </body>
 </html>
-
