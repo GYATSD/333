@@ -1,0 +1,279 @@
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  background-image: url("image/background.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+/*header shit*/
+header {
+  padding: 20px;
+  text-align: center;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav li {
+  display: inline-block;
+  margin-right: 20px;
+}
+
+nav a {
+  color: #ccc; /* Nav text */
+}
+
+nav a:hover {
+  color: #ccc; /* Nav hover text */
+}
+/*rainbow text shit*/
+.clip-text {
+  background-image: linear-gradient(to right, #FF69B4, #FFC0CB);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-background-clip: text;
+  -moz-text-fill-color: transparent;
+  animation: rainbowGradientAnimation 5s ease infinite;
+}
+
+.clip-text::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  background-image: linear-gradient(to right, #FF69B4, #FFC0CB);
+  background-clip: border-box;
+  height: 1px;
+  width: 100%;
+  animation: rainbowGradientAnimation 5s ease infinite;
+}
+
+.clip-text:hover::after {
+  text-decoration: underline;
+}
+
+/*navbar shit*/
+#navbar {
+	overflow: hidden;
+	background-color: transparent;
+	transition: top 0.5s;
+	display: block;
+	animation: borderRotate 5s ease infinite;
+}
+
+#navbar ul li {
+	padding: 0 .5em .25em;
+	cursor: pointer;
+	position: relative;
+	overflow: hidden;
+	transition: .3s;
+	background-color: transparent;
+	display: block;
+	background: linear-gradient(to right, #ff0000, #d400ff);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	font-weight: bold;
+}
+
+#navbar ul li a {
+	padding: 0 .5em .25em;
+	cursor: pointer;
+	position: relative;
+	overflow: hidden;
+	transition: .3s;
+	background-color: black;
+	display: block;
+	background: linear-gradient(to right, #ff0000, #d400ff);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	font-weight: bold;
+}
+
+#navbar ul li:hover {
+	color: #fff;
+	border-radius: 16px;
+	border: thick;
+}
+
+#navbar ul li:before {
+	content: "";
+	position: absolute;
+	inset: calc(100% - 3px) 0 0 0; /* 3px = the thickness */
+	animation: transparent-rainbow 5s ease infinite;
+	scale: 0 1;
+	transition: .3s, translate 0s .3s;
+}
+
+#navbar ul:hover li:before {
+	scale: 1;
+}
+
+#navbar ul li:hover:before {
+	translate: 0;
+	transition: .3s;
+}
+
+#navbar ul:hover li:has(~ li:hover):before {
+	translate: 100% 0;
+	transition: .2s .2s, scale 0s .4s;
+}
+
+#navbar ul:hover li:hover ~ li:before {
+	translate: -100% 0;
+	transition: .2s .2s, scale 0s .4s;
+}
+
+@keyframes transparent-rainbow {
+	0% { background-color: rgba(255, 0, 0, 0.8); }
+	20% { background-color: rgba(255, 165, 0, 0.8); }
+	40% { background-color: rgba(255, 255, 0, 0.8); }
+	60% { background-color: rgba(0, 128, 0, 0.8); }
+	80% { background-color: rgba(0, 0, 255, 0.8); }
+	100% { background-color: rgba(238, 130, 238, 0.8); }
+}
+	@keyframes rainbowGradientAnimation {
+		0% {
+			background: linear-gradient(to right, #ff0000, #ffa500);
+			-webkit-background-clip: text;
+			-webkit-text-fill-color: transparent;
+			font-weight: bold;
+		}
+		5% {
+			background: linear-gradient(to right, #ffa500, #ffff00);
+			-webkit-background-clip: text;
+			-webkit-text-fill-color: transparent;
+			font-weight: bold;
+		}
+		10% {
+			background: linear-gradient(to right, #ffff00, #00ff00);
+			-webkit-background-clip: text;
+			-webkit-text-fill-color: transparent;
+			font-weight: bold;
+		}
+		15% {
+			background: linear-gradient(to right, #00ff00, #00ffff);
+			-webkit-background-clip: text;
+			-webkit-text-fill-color: transparent;
+			font-weight: bold;
+		}
+		20% {
+			background: linear-gradient(to right, #00ffff, #0000ff);
+			-webkit-background-clip: text;
+			-webkit-text-fill-color: transparent;
+			font-weight: bold;
+		}
+		25% {
+			background: linear-gradient(to right, #0000ff, #8b00ff);
+			-webkit-background-clip: text;
+			-webkit-text-fill-color: transparent;
+			font-weight: bold;
+		}
+		30% {
+			background: linear-gradient(to right, #8b00ff, #ff00ff);
+			-webkit-background-clip: text;
+			-webkit-text-fill-color: transparent;
+			font-weight: bold;
+		}
+		35% {
+			background: linear-gradient(to right, #ff00ff, #ff69b4);
+			-webkit-background-clip: text;
+			-webkit-text-fill-color: transparent;
+			font-weight: bold;
+		}
+		40% {
+			background: linear-gradient(to right, #ff69b4, #ff0000);
+			-webkit-background-clip: text;
+			-webkit-text-fill-color: transparent;
+			font-weight: bold;
+		}
+		45% {
+			background: linear-gradient(to right, #ff0000, #ffa500);
+			-webkit-background-clip: text;
+			-webkit-text-fill-color: transparent;
+			font-weight: bold;
+		}
+		50% {
+			background: linear-gradient(to right, #ffa500, #ffff00);
+			-webkit-background-clip: text;
+			-webkit-text-fill-color: transparent;
+			font-weight: bold;
+		}
+		55% {
+			background: linear-gradient(to right, #ffff00, #00ff00);
+			-webkit-background-clip: text;
+			-webkit-text-fill-color: transparent;
+			font-weight: bold;
+		}
+		60% {
+			background: linear-gradient(to right, #00ff00, #00ffff);
+			-webkit-background-clip: text;
+			-webkit-text-fill-color: transparent;
+			font-weight: bold;
+		}
+		65% {
+			background: linear-gradient(to right, #00ffff, #0000ff);
+			-webkit-background-clip: text;
+			-webkit-text-fill-color: transparent;
+			font-weight: bold;
+		}
+		70% {
+			background: linear-gradient(to right, #0000ff, #8b00ff);
+			-webkit-background-clip: text;
+			-webkit-text-fill-color: transparent;
+			font-weight: bold;
+		}
+		75% {
+			background: linear-gradient(to right, #8b00ff, #ff00ff);
+			-webkit-background-clip: text;
+			-webkit-text-fill-color: transparent;
+			font-weight: bold;
+		}
+		80% {
+			background: linear-gradient(to right, #ff00ff, #ff69b4);
+			-webkit-background-clip: text;
+			-webkit-text-fill-color: transparent;
+			font-weight: bold;
+		}
+		85% {
+			background: linear-gradient(to right, #ff69b4, #ff0000);
+			-webkit-background-clip: text;
+			-webkit-text-fill-color: transparent;
+			font-weight: bold;
+		}
+		90% {
+			background: linear-gradient(to right, #ff0000, #ffa500);
+			-webkit-background-clip: text;
+			-webkit-text-fill-color: transparent;
+			font-weight: bold;
+		}
+		95% {
+			background: linear-gradient(to right, #ffa500, #ffff00);
+			-webkit-background-clip: text;
+			-webkit-text-fill-color: transparent;
+			font-weight: bold;
+		}
+		100% {
+			background: linear-gradient(to right, #ffff00, #00ff00);
+			-webkit-background-clip: text;
+			-webkit-text-fill-color: transparent;
+			font-weight: bold;
+		}
+	}
+main {
+  max-width: 800px;
+  margin: auto;
+}
+
