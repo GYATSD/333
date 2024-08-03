@@ -5,21 +5,63 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mr.E Web</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
+        /* Reset default browser margins and paddings */
+        * {
             margin: 0;
             padding: 0;
-            background-color: #f0f0f0;
+            box-sizing: border-box;
+        }
+
+        /* Basic styling for body */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f7f7f7;
             color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
             text-align: center;
         }
+
+        /* Styling for the container */
+        .container {
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            max-width: 600px;
+            width: 100%;
+        }
+
+        /* Styling for the heading */
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        /* Styling for the paragraph */
         p {
-            margin-top: 20%;
-            font-size: 2em;
+            font-size: 1.2em;
+            color: #555;
+        }
+
+        /* Styling for the footer */
+        footer {
+            margin-top: 20px;
+            font-size: 0.9em;
+            color: #888;
         }
     </style>
 </head>
 <body>
-    <p>Hi</p>
+    <div class="container">
+        <h1>Welcome to Mr.E Web</h1>
+        <p>Hi</p>
+        <footer>
+            &copy; 2024 Mr.E Web. All rights reserved.
+        </footer>
+    </div>
 </body>
 </html>
