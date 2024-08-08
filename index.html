@@ -13,6 +13,10 @@
 
         body {
             animation: rgbBackground 5s infinite;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
         }
 
         @keyframes rgbBackground {
@@ -29,9 +33,43 @@
                 background-color: rgb(255, 0, 0); /* Red */
             }
         }
+
+        .credit {
+            margin-top: 20px;
+            cursor: pointer;
+            color: white;
+            font-size: 18px;
+            text-decoration: underline;
+        }
+
+        .extra-text {
+            margin-top: 10px;
+            display: none;
+            color: white;
+            font-size: 16px;
+            text-align: center;
+        }
     </style>
 </head>
 <body>
     <p>test</p>
+
+    <div class="credit" onclick="toggleText()">Credit</div>
+
+    <div class="extra-text">
+        <p>This is additional information that is shown when the credit is clicked.</p>
+        <p><a href="https://example.com" target="_blank" style="color: white;">Visit our credits page</a></p>
+    </div>
+
+    <script>
+        function toggleText() {
+            const extraText = document.querySelector('.extra-text');
+            if (extraText.style.display === 'none' || extraText.style.display === '') {
+                extraText.style.display = 'block';
+            } else {
+                extraText.style.display = 'none';
+            }
+        }
+    </script>
 </body>
 </html>
