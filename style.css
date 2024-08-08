@@ -1,10 +1,11 @@
-body {
+html, body {
     margin: 0;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    animation: rgbBackground 10s infinite;
+    height: 100%;
+    overflow: hidden;
+}
+
+body {
+    animation: rgbBackground 5s infinite;
 }
 
 @keyframes rgbBackground {
@@ -21,4 +22,3 @@ body {
         background-color: rgb(255, 0, 0); /* Red */
     }
 }
-
