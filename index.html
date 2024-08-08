@@ -9,6 +9,7 @@
             margin: 0;
             height: 100%;
             overflow: hidden;
+            font-family: Arial, sans-serif;
         }
 
         body {
@@ -17,6 +18,8 @@
             justify-content: center;
             align-items: center;
             flex-direction: column;
+            color: white;
+            text-align: center;
         }
 
         @keyframes rgbBackground {
@@ -38,27 +41,45 @@
             margin-top: 20px;
             cursor: pointer;
             color: white;
-            font-size: 18px;
+            font-size: 20px;
+            font-weight: bold;
             text-decoration: underline;
+            transition: color 0.3s ease;
+        }
+
+        .credit:hover {
+            color: #FFD700; /* Gold color on hover */
         }
 
         .extra-text {
-            margin-top: 10px;
+            margin-top: 20px;
             display: none;
             color: white;
-            font-size: 16px;
-            text-align: center;
+            font-size: 18px;
+            max-width: 600px;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .extra-text a {
+            color: #FFD700;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .extra-text a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
 <body>
-    <p>test</p>
+    <p>Welcome to Haunt Hub</p>
 
     <div class="credit" onclick="toggleText()">Credit</div>
 
     <div class="extra-text">
-        <p>This is additional information that is shown when the credit is clicked.</p>
-        <p><a href="https://example.com" target="_blank" style="color: white;">Visit our credits page</a></p>
+        <p>This website was made possible by contributions from various artists and developers. We appreciate their hard work and dedication.</p>
+        <p><a href="https://example.com" target="_blank">Visit our credits page</a></p>
     </div>
 
     <script>
@@ -66,8 +87,14 @@
             const extraText = document.querySelector('.extra-text');
             if (extraText.style.display === 'none' || extraText.style.display === '') {
                 extraText.style.display = 'block';
+                setTimeout(() => {
+                    extraText.style.opacity = 1;
+                }, 10); // small delay to trigger the transition effect
             } else {
-                extraText.style.display = 'none';
+                extraText.style.opacity = 0;
+                setTimeout(() => {
+                    extraText.style.display = 'none';
+                }, 500); // matches the transition duration
             }
         }
     </script>
