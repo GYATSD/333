@@ -16,8 +16,8 @@
         html, body {
             margin: 0;
             height: 100%;
-            overflow: hidden;
             font-family: Arial, sans-serif;
+            overflow: auto; /* Enable scrolling */
         }
 
         body {
@@ -28,7 +28,8 @@
             align-items: center;
             color: white;
             text-align: center;
-            padding-top: 50px; /* Add some padding to move content below the header */
+            padding: 50px; /* Add padding around the content */
+            box-sizing: border-box; /* Include padding in width and height */
         }
 
         @keyframes rgbBackground {
@@ -47,11 +48,9 @@
         }
 
         h1 {
-            position: absolute;
-            top: 10px;
+            position: relative; /* Changed from absolute to relative */
             width: 90%;
             max-width: 600px;
-            margin: 0 auto;
             font-size: 56pt;
             padding: 10px;
             border: 2px solid white;
