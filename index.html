@@ -15,11 +15,12 @@
         body {
             animation: rgbBackground 5s infinite;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
-            flex-direction: column;
             color: white;
             text-align: center;
+            padding-top: 50px; /* Add some padding to move content below the header */
         }
 
         @keyframes rgbBackground {
@@ -35,6 +36,19 @@
             100% {
                 background-color: rgb(255, 0, 0); /* Red */
             }
+        }
+
+        h1 {
+            position: absolute;
+            top: 10px;
+            width: 90%;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 10px;
+            border: 2px solid white;
+            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+            border-radius: 5px;
+            text-align: center;
         }
 
         .credit {
