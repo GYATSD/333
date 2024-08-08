@@ -12,11 +12,14 @@
     <meta property="og:type" content="website">
     <meta property="og:image" content="images/IMG_4066.png">
 
+    <!-- Font Awesome for icons (optional) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
     <style>
         html, body {
             margin: 0;
             height: 100%;
-            overflow: hidden;
+            overflow: auto; /* Allow scrolling */
             font-family: Arial, sans-serif;
         }
 
@@ -28,7 +31,8 @@
             align-items: center;
             color: white;
             text-align: center;
-            padding-top: 50px; /* Add some padding to move content below the header */
+            padding-top: 50px; /* Add padding around the content */
+            box-sizing: border-box; /* Include padding in width and height */
         }
 
         @keyframes rgbBackground {
@@ -47,11 +51,9 @@
         }
 
         h1 {
-            position: absolute;
-            top: 10px;
+            position: relative; /* Changed from absolute to relative */
             width: 90%;
             max-width: 600px;
-            margin: 0 auto;
             font-size: 56pt;
             padding: 10px;
             border: 2px solid white;
@@ -93,6 +95,27 @@
         .extra-text a:hover {
             text-decoration: underline;
         }
+
+        .info-icon {
+            position: fixed;
+            bottom: 10px;
+            left: 10px;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            cursor: pointer;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        .info-icon:hover {
+            background-color: rgba(0, 0, 0, 0.9);
+        }
     </style>
 </head>
 <body>
@@ -103,6 +126,11 @@
 
     <div class="extra-text">
         <p>This website was made by Mr.E.</p>
+    </div>
+
+    <!-- Info Icon -->
+    <div class="info-icon">
+        <i class="fas fa-info"></i> <!-- Font Awesome info icon -->
     </div>
 
     <script>
