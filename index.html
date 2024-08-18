@@ -199,11 +199,12 @@
             border-radius: 5px;
             font-size: 16px;
             z-index: 1000;
+            display: none; /* Hidden until disclaimer is accepted */
         }
     </style>
 </head>
 <body>
-    <div class="ip-display" id="ipDisplay">Loading IP...</div>
+    <div class="ip-display" id="ipDisplay"></div>
     
     <h1>Haunt Hub</h1>
     <p>Welcome to Haunt Hub</p>
@@ -235,6 +236,22 @@
         </div>
     </div>
 
+    <!-- Disclaimer Modal -->
+    <div class="modal" id="disclaimerModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="modal-title">IP Address Disclaimer</span>
+                <button class="close" onclick="closeDisclaimer()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p>Your IP address will be displayed at the top right of this webpage. By clicking "Accept", you consent to this display.</p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn" onclick="acceptDisclaimer()">Accept</button>
+            </div>
+        </div>
+    </div>
+
     <script>
         function toggleText() {
             const extraText = document.querySelector('.extra-text');
@@ -259,16 +276,36 @@
             document.getElementById('infoModal').style.display = 'none';
         }
 
-        // Fetch IP Address and Display
-        fetch('https://api.ipify.org?format=json')
-            .then(response => response.json())
-            .then(data => {
-                document.getElementById('ipDisplay').textContent = `Your IP: ${data.ip}`;
-            })
-            .catch(error => {
-                document.getElementById('ipDisplay').textContent = 'Unable to fetch IP';
-                console.error('Error fetching IP:', error);
-            });
+        function openDisclaimer() {
+            document.getElementById('disclaimerModal').style.display = 'flex';
+        }
+
+        function closeDisclaimer() {
+            document.getElementById('disclaimerModal').style.display = 'none';
+        }
+
+        function acceptDisclaimer() {
+            document.getElementById('disclaimerModal').style.display = 'none';
+            document.getElementById('ipDisplay').style.display = 'block';
+            fetchIpAddress();
+        }
+
+        function fetchIpAddress() {
+            fetch('https://api.ipify.org?format=json')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('ipDisplay').textContent = `Your IP: ${data.ip}`;
+                })
+                .catch(error => {
+                    document.getElementById('ipDisplay').textContent = 'Unable to fetch IP';
+                    console.error('Error fetching IP:', error);
+                });
+        }
+
+        // Open disclaimer modal on page load
+        window.onload = function() {
+            openDisclaimer();
+        };
     </script>
 </body>
 </html>
