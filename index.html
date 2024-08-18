@@ -187,9 +187,24 @@
         .modal-footer .btn:hover {
             background-color: #0056b3;
         }
+
+        /* IP Address Display */
+        .ip-display {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 16px;
+            z-index: 1000;
+        }
     </style>
 </head>
 <body>
+    <div class="ip-display" id="ipDisplay">Loading IP...</div>
+    
     <h1>Haunt Hub</h1>
     <p>Welcome to Haunt Hub</p>
 
@@ -243,6 +258,17 @@
         function closeModal() {
             document.getElementById('infoModal').style.display = 'none';
         }
+
+        // Fetch IP Address and Display
+        fetch('https://api.ipify.org?format=json')
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('ipDisplay').textContent = `Your IP: ${data.ip}`;
+            })
+            .catch(error => {
+                document.getElementById('ipDisplay').textContent = 'Unable to fetch IP';
+                console.error('Error fetching IP:', error);
+            });
     </script>
 </body>
 </html>
