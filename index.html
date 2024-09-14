@@ -17,6 +17,7 @@
         h1 {
             text-align: center;
             color: #4A90E2;
+            font-size: 48px;
         }
         textarea, select, button, pre {
             width: 100%;
@@ -74,11 +75,28 @@
         h3 {
             margin-top: 30px;
         }
+
+        /* Add styles for animated title */
+        .animated-title {
+            display: inline-block;
+        }
+
+        .letter {
+            display: inline-block;
+            opacity: 0;
+            animation: fade-color 3s infinite ease-in-out;
+        }
+
+        @keyframes fade-color {
+            0% { opacity: 0; transform: scale(0.5); }
+            50% { opacity: 1; transform: scale(1.2); }
+            100% { opacity: 0; transform: scale(1); }
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Multi-Language Code Executor</h1>
+        <h1 id="title">Multi-Language Code Executor</h1>
         <p>Currently supports JavaScript only. Other languages are in development.</p>
         <p>Made By Mr.E with the help of ChatGPT ;)</p>
         
@@ -113,6 +131,24 @@
                 outputElement.textContent = 'This language requires server-side execution.';
             }
         }
+
+        // JavaScript to animate each letter of the title
+        function animateTitle() {
+            const titleElement = document.getElementById('title');
+            const titleText = titleElement.textContent;
+            titleElement.innerHTML = ''; // Clear the current title
+
+            titleText.split('').forEach((letter, index) => {
+                const span = document.createElement('span');
+                span.textContent = letter;
+                span.className = 'letter';
+                span.style.animationDelay = `${index * 0.1}s`; // Delay each letter animation
+                titleElement.appendChild(span);
+            });
+        }
+
+        // Call animateTitle on page load
+        window.onload = animateTitle;
     </script>
 </body>
 </html>
