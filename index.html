@@ -114,27 +114,34 @@
             }
         }
 
-        // Animate title by rotating through letters
-        function animateTitle(titleText) {
-            let index = 0;
-            let currentTitle = '';
-            
+        // Smoothly transition the title by fading text in and out
+        function smoothTitleTransition() {
+            const titles = ['Welcome', 'to', 'E Web'];
+            let titleIndex = 0;
+            let opacity = 0;
+            let increasing = true;
+
             setInterval(() => {
-                // Rotate through the letters
-                if (index < titleText.length) {
-                    currentTitle += titleText[index];
+                if (increasing) {
+                    opacity += 0.05;
+                    if (opacity >= 1) {
+                        increasing = false;
+                    }
                 } else {
-                    currentTitle = '';  // Reset once the title is fully displayed
-                    index = -1;
+                    opacity -= 0.05;
+                    if (opacity <= 0) {
+                        increasing = true;
+                        titleIndex = (titleIndex + 1) % titles.length;  // Move to the next title
+                    }
                 }
 
-                document.title = currentTitle;  // Update the tab title
-                index++;
-            }, 300);  // Adjust the interval for speed (300ms per letter)
+                // Set the title with varying opacity (simulated by adding spaces to the title)
+                document.title = titles[titleIndex] + ' '.repeat(Math.floor(opacity * 10)); 
+            }, 100);  // Adjust timing for smoother transitions
         }
 
-        // Start the animation with the title text "E Web"
-        animateTitle('E Web');
+        // Start the smooth title transition
+        smoothTitleTransition();
     </script>
 </body>
 </html>
