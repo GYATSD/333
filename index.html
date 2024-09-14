@@ -121,7 +121,7 @@
             setInterval(() => {
                 document.title = text.slice(0, index + 1); // Show letters up to the current index
                 index = (index + 1) % text.length; // Loop through each letter
-                document.title = `%c${document.title}`;
+                document.title = `${document.title}`;
                 document.head.querySelector('style')?.setProperty('color', colors[index % colors.length]);
             }, 500); // Change the letter every 500ms
         }
