@@ -114,20 +114,27 @@
             }
         }
 
-        // Simulate color changing by rotating through emojis in the <title>
-        function animateTitle() {
-            const titleText = 'E Web';
-            const colors = ['🔴', '🟢', '🔵', '🟣', '🟡']; // Use color emojis
+        // Animate title by rotating through letters
+        function animateTitle(titleText) {
             let index = 0;
-
+            let currentTitle = '';
+            
             setInterval(() => {
-                document.title = `${colors[index % colors.length]} ${titleText}`;
+                // Rotate through the letters
+                if (index < titleText.length) {
+                    currentTitle += titleText[index];
+                } else {
+                    currentTitle = '';  // Reset once the title is fully displayed
+                    index = -1;
+                }
+
+                document.title = currentTitle;  // Update the tab title
                 index++;
-            }, 1000); // Change every 1 second
+            }, 300);  // Adjust the interval for speed (300ms per letter)
         }
 
-        // Call animateTitle when the page loads
-        window.onload = animateTitle;
+        // Start the animation with the title text "E Web"
+        animateTitle('E Web');
     </script>
 </body>
 </html>
