@@ -114,21 +114,20 @@
             }
         }
 
-        // Animate the <title> tag
-        function animateTitle(text) {
+        // Simulate color changing by rotating through emojis in the <title>
+        function animateTitle() {
+            const titleText = 'E Web';
+            const colors = ['🔴', '🟢', '🔵', '🟣', '🟡']; // Use color emojis
             let index = 0;
-            const colors = ['#ff6347', '#4A90E2', '#32cd32', '#ff69b4', '#ffa500']; // Array of colors
+
             setInterval(() => {
-                document.title = text.slice(0, index + 1); // Show letters up to the current index
-                index = (index + 1) % text.length; // Loop through each letter
-                document.title = `${document.title}`;
-                document.head.querySelector('style')?.setProperty('color', colors[index % colors.length]);
-            }, 500); // Change the letter every 500ms
+                document.title = `${colors[index % colors.length]} ${titleText}`;
+                index++;
+            }, 1000); // Change every 1 second
         }
 
-        // Call the animateTitle function
-        animateTitle('E Web');
+        // Call animateTitle when the page loads
+        window.onload = animateTitle;
     </script>
 </body>
 </html>
-``
