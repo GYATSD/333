@@ -4,41 +4,95 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>E Web</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
+            font-family: 'Poppins', sans-serif;
+            background-color: #f0f4f8;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            color: #4A90E2;
+        }
+        textarea, select, button, pre {
+            width: 100%;
+            max-width: 800px;
+            margin: 10px auto;
+            display: block;
         }
         textarea {
-            width: 100%;
             height: 200px;
-            margin-bottom: 10px;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            resize: vertical;
         }
-        select, button {
-            margin-bottom: 10px;
+        select {
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #4A90E2;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        button:hover {
+            background-color: #357ABD;
         }
         pre {
-            background-color: #f4f4f4;
-            padding: 10px;
-            border: 1px solid #ddd;
+            background-color: #2f3640;
+            color: #fff;
+            padding: 15px;
+            border-radius: 5px;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+        h3 {
+            margin-top: 30px;
         }
     </style>
 </head>
 <body>
-    <h1>Multi-Language Code Executor (JavaScript only for now I'm trying to make run more then one language) Made By Mr.E withg the help of ChatGPT ;)</h1>
-    <select id="language">
-        <option value="javascript">JavaScript</option>
-        <!-- C#, Python, and C++ require server-side execution -->
-        <option value="python" disabled>Python (Server-side and not working)</option>
-        <option value="csharp" disabled>C# (Server-side and not working)</option>
-        <option value="cpp" disabled>C++ (Server-side and not working)</option>
-    </select>
-    
-    <textarea id="code" placeholder="Write your JavaScript code here..."></textarea>
-    <button onclick="executeCode()">Run Code</button>
-
-    <h3>Output:</h3>
-    <pre id="output"></pre>
+    <div class="container">
+        <h1>Multi-Language Code Executor</h1>
+        <p>Currently supports JavaScript only. Other languages are in development.</p>
+        
+        <select id="language">
+            <option value="javascript">JavaScript</option>
+            <option value="python" disabled>Python (Server-side not available)</option>
+            <option value="csharp" disabled>C# (Server-side not available)</option>
+            <option value="cpp" disabled>C++ (Server-side not available)</option>
+        </select>
+        
+        <textarea id="code" placeholder="Write your JavaScript code here..."></textarea>
+        <button onclick="executeCode()">Run Code</button>
+        
+        <h3>Output:</h3>
+        <pre id="output"></pre>
+    </div>
 
     <script>
         function executeCode() {
