@@ -1,1 +1,1 @@
-Thsi os the src code for https://e-web.pages.dev/
+This is the src code for https://e-web.pages.dev/
