@@ -19,7 +19,7 @@
         <select id="language">
             <option value="javascript">JavaScript</option>
             <option value="python" disabled>Python (Server-side/not available)</option>
-            <option value="csharp" disabled>C# (Server-side not/available)</option>
+            <option value="csharp">C# (not available/Work In Progress)</option>
             <option value="cpp" disabled>C++ (Server-side/not available)</option>
         </select>
         
@@ -48,6 +48,9 @@
                 } catch (error) {
                     outputElement.textContent = 'Error: ' + error.message;
                 }
+            } else if (language === 'csharp') {
+                // Here you would need a server-side implementation for C#
+                outputElement.textContent = 'C# execution is not supported in this environment.';
             } else {
                 outputElement.textContent = 'This language requires server-side execution.';
             }
