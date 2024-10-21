@@ -9,9 +9,9 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <button id="darkModeToggle">Toggle Dark Mode</button>
     <div class="container">
         <h1 id="title">Multi-Language Code Executor</h1>
-        <button id="darkModeToggle">Toggle Dark Mode</button>
         <p>Currently supports JavaScript only. Other languages are in development.</p>
         <p>Made By Mr.E with the help of ChatGPT ;)</p>
         <p>I'm making the site look better so this will take time.</p>
@@ -29,7 +29,6 @@
         <h3>Output:</h3>
         <pre id="output"></pre>
     </div>
-
     <script>
         function executeCode() {
             const language = document.getElementById('language').value;
