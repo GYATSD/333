@@ -133,7 +133,7 @@ body.dark-mode h3 {
 #darkModeToggle {
     position: absolute;
     top: 20px;
-    right: 20px;
+    right: 10px;
     padding: 10px; /* Adjust padding for square shape */
     font-size: 14px; /* Decrease font size */
     color: #fff;
