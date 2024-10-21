@@ -1,3 +1,5 @@
+/* styles.css */
+
 body {
     font-family: 'Poppins', sans-serif;
     background-color: #f0f4f8;
@@ -132,15 +134,15 @@ body.dark-mode h3 {
     position: absolute;
     top: 20px;
     right: 20px;
-    padding: 10px 20px; /* Increase padding for better spacing */
-    font-size: 16px; /* Use a slightly larger font size */
+    padding: 8px 15px; /* Decrease padding */
+    font-size: 14px; /* Decrease font size */
     color: #fff;
     background: linear-gradient(90deg, #4A90E2, #76b5c5); /* Gradient background */
     border: none;
-    border-radius: 30px; /* More rounded corners */
+    border-radius: 25px; /* Maintain rounded corners */
     cursor: pointer;
     transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease; /* Smooth transition effects */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Enhanced shadow for depth */
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3); /* Reduced shadow for a smaller button */
     display: flex; /* Use flexbox for alignment */
     align-items: center; /* Center icon and text vertically */
     justify-content: center; /* Center icon and text horizontally */
@@ -148,8 +150,8 @@ body.dark-mode h3 {
 
 #darkModeToggle:hover {
     background: linear-gradient(90deg, #357ABD, #5fa1b3); /* Change gradient on hover */
-    transform: translateY(-3px); /* Slightly raise the button on hover */
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4); /* Deeper shadow on hover */
+    transform: translateY(-2px); /* Slightly raise the button on hover */
+    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.4); /* Deeper shadow on hover */
 }
 
 #darkModeToggle:active {
@@ -158,5 +160,6 @@ body.dark-mode h3 {
 
 /* Add styles for the icon */
 #darkModeToggle i {
-    margin-right: 8px; /* Space between icon and text */
+    margin-right: 5px; /* Space between icon and text */
+    font-size: 16px; /* Ensure the icon size is appropriate */
 }
