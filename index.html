@@ -12,13 +12,14 @@
     <meta property="og:description" content="A website made by Mr.E">
     <meta property="og:type" content="website">
     <meta property="og:image" content="E_web.png">
+    <meta property="og:url" content="https://e-web.pages.dev"> 
 </head>
 <body>
     <div class="container">
         <h1 id="title">Multi-Language Code Executor</h1>
         <p>Currently supports JavaScript only. Other languages are in development.</p>
         <p>Made By Mr.E with the help of ChatGPT ;)</p>
-        <p>I'm not gonna lie i give up on working on this website.</p>
+        <p>I'm not gonna lie I give up on working on this website.</p>
         
         <select id="language">
             <option value="javascript">JavaScript</option>
@@ -35,8 +36,12 @@
 
         <!-- Dark Mode Toggle Button -->
         <button id="darkModeToggle">
-            <i class="fas fa-moon"></i> <!-- Font Awesome icon -->
+            <i class="fas fa-moon"></i>
         </button>
+
+        <!-- Visible Image (Optional Debugging Aid) -->
+        <h3>Site Image:</h3>
+        <img src="E_web.png" alt="Site Thumbnail" style="max-width: 300px;">
     </div>
 
     <script>
@@ -47,38 +52,32 @@
             
             if (language === 'javascript') {
                 try {
-                    const result = eval(code);  // Run JavaScript code directly
+                    const result = eval(code);
                     outputElement.textContent = result !== undefined ? result : 'Code executed successfully, no output.';
                 } catch (error) {
                     outputElement.textContent = 'Error: ' + error.message;
                 }
-            } else if (language === 'csharp') {
-                // Here you would need a server-side implementation for C#
-                outputElement.textContent = 'C# execution is not supported in this environment.';
             } else {
                 outputElement.textContent = 'This language requires server-side execution.';
             }
         }
-
-        // JavaScript to animate each letter of the title
+    </script>
+    <script>
         function animateTitle() {
             const titleElement = document.getElementById('title');
             const titleText = titleElement.textContent;
-            titleElement.innerHTML = ''; // Clear the current title
-
+            titleElement.innerHTML = '';
             titleText.split('').forEach((letter, index) => {
                 const span = document.createElement('span');
                 span.textContent = letter;
                 span.className = 'letter';
-                span.style.animationDelay = `${index * 0.1}s`; // Delay each letter animation
+                span.style.animationDelay = `${index * 0.1}s`;
                 titleElement.appendChild(span);
             });
         }
 
-        // Call animateTitle on page load
         window.onload = animateTitle;
 
-        // Toggle dark mode
         const darkModeToggle = document.getElementById('darkModeToggle');
         darkModeToggle.addEventListener('click', () => {
             document.body.classList.toggle('dark-mode');
