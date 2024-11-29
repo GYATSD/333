@@ -7,81 +7,12 @@
     <link rel="icon" type="image/png" href="E_web.png">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css"> <!-- Link to the external CSS file -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> 
-    <meta property="og:title" content="E Web">
-    <meta property="og:description" content="A website made by Mr.E">
-    <meta property="og:type" content="website">
-    <meta property="og:image" content="E_web.png">
-    <meta property="og:url" content="https://e-web.pages.dev"> 
 </head>
 <body>
     <div class="container">
-        <h1 id="title">Multi-Language Code Executor</h1>
-        <p>Currently supports JavaScript only. Other languages are in development.</p>
-        <p>Made By Mr.E with the help of ChatGPT ;)</p>
-        <p>I'm not gonna lie I give up on working on this website.</p>
-        
-        <select id="language">
-            <option value="javascript">JavaScript</option>
-            <option value="python" disabled>Python (Server-side/not available)</option>
-            <option value="csharp" disabled>C# (not available/Work In Progress)</option>
-            <option value="cpp" disabled>C++ (Server-side/not available)</option>
-        </select>
-        
-        <textarea id="code" placeholder="Write your JavaScript code here..."></textarea>
-        <button onclick="executeCode()">Run Code</button>
-        
-        <h3>Output:</h3>
-        <pre id="output"></pre>
-
-        <!-- Dark Mode Toggle Button -->
-        <button id="darkModeToggle">
-            <i class="fas fa-moon"></i>
-        </button>
-
-        <!-- Visible Image (Optional Debugging Aid) -->
-        <h3>Site Image:</h3>
-        <img src="E_web.png" alt="Site Thumbnail" style="max-width: 300px;">
+        <h1>I'll Be Back Soon with a better webside!</h1>
+        <p>The website is currently down for maintenance/remodling. Please check back later.</p>
+        <p>Thank you for your patience and understanding. :)</p>
     </div>
-
-    <script>
-        function executeCode() {
-            const language = document.getElementById('language').value;
-            const code = document.getElementById('code').value;
-            const outputElement = document.getElementById('output');
-            
-            if (language === 'javascript') {
-                try {
-                    const result = eval(code);
-                    outputElement.textContent = result !== undefined ? result : 'Code executed successfully, no output.';
-                } catch (error) {
-                    outputElement.textContent = 'Error: ' + error.message;
-                }
-            } else {
-                outputElement.textContent = 'This language requires server-side execution.';
-            }
-        }
-    </script>
-    <script>
-        function animateTitle() {
-            const titleElement = document.getElementById('title');
-            const titleText = titleElement.textContent;
-            titleElement.innerHTML = '';
-            titleText.split('').forEach((letter, index) => {
-                const span = document.createElement('span');
-                span.textContent = letter;
-                span.className = 'letter';
-                span.style.animationDelay = `${index * 0.1}s`;
-                titleElement.appendChild(span);
-            });
-        }
-
-        window.onload = animateTitle;
-
-        const darkModeToggle = document.getElementById('darkModeToggle');
-        darkModeToggle.addEventListener('click', () => {
-            document.body.classList.toggle('dark-mode');
-        });
-    </script>
 </body>
 </html>
