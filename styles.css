@@ -2,137 +2,62 @@
 
 body {
     font-family: 'Poppins', sans-serif;
-    background-color: #2E2E2E; // white color #F5F5F5
-    color: #333;
+    background-color: #1e1e1e;
+    color: #ffffff;
     margin: 0;
-    padding: 20px;
-}
-
-h1 {
+    padding: 0;
     text-align: center;
-    color: #B8860B;
-    font-size: 48px;
 }
 
-textarea, select, button, pre {
-    width: 100%;
-    max-width: 800px;
-    margin: 10px auto;
-    display: block;
+header {
+    background-color: #ff6600;
+    padding: 20px;
+    font-size: 24px;
 }
 
-textarea {
-    height: 200px;
-    padding: 10px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: #fff;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    resize: vertical;
+nav ul {
+    list-style: none;
+    padding: 0;
 }
 
-select {
-    padding: 10px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: #fff;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+nav ul li {
+    display: inline;
+    margin: 0 15px;
 }
 
-button {
-    padding: 10px 20px;
-    font-size: 16px;
-    color: #fff;
-    background-color: #4A90E2;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+nav ul li a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
 }
 
-button:hover {
-    background-color: #357ABD;
-}
-
-pre {
-    background-color: #2f3640;
-    color: #fff;
-    padding: 15px;
-    border-radius: 5px;
-    white-space: pre-wrap;
-    word-wrap: break-word;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-.container {
+section {
+    margin: 40px auto;
+    padding: 20px;
     max-width: 900px;
-    margin: 0 auto;
+    background-color: #2e2e2e;
+    border-radius: 10px;
+}
+
+.game-list {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.game {
+    background-color: #ff6600;
+    padding: 15px;
+    border-radius: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #1e1e1e;
+}
+
+footer {
+    background-color: #111;
     padding: 20px;
-    text-align: center;
-}
-
-h3 {
-    margin-top: 30px;
-}
-
-/* Dark Mode Toggle Button */
-#darkModeToggle {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    width: 40px; /* Fixed width for square button */
-    height: 40px; /* Fixed height for square button */
-    padding: 0; /* Remove padding */
-    font-size: 18px; /* Adjust font size */
-    color: #fff; /* Text color */
-    background-color: #4A90E2; /* Solid background color */
-    border: none; /* Remove border */
-    border-radius: 5px; /* Slightly round corners */
-    cursor: pointer; /* Pointer cursor on hover */
-    transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transition effects */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Subtle shadow */
-    display: flex; /* Use flexbox for centering */
-    align-items: center; /* Center icon vertically */
-    justify-content: center; /* Center icon horizontally */
-}
-
-#darkModeToggle:hover {
-    background-color: #357ABD; /* Darker shade on hover */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Deeper shadow on hover */
-}
-
-#darkModeToggle:active {
-    transform: scale(0.95); /* Slightly shrink when clicked */
-}
-
-/* Icon styles */
-#darkModeToggle i {
-    margin: 0; /* Remove any margin */
-    font-size: 20px; /* Increase icon size if necessary */
-}
-
-/* Dark Mode Styles */
-.dark-mode {
-    background-color: #333;
-    color: #fff;
-}
-
-.dark-mode textarea,
-.dark-mode select,
-.dark-mode pre {
-    background-color: #444;
-    color: #fff;
-    border: 1px solid #666;
-}
-
-.dark-mode button {
-    background-color: #555; /* Button background color in dark mode */
-    color: #fff; /* Text color in dark mode */
-}
-
-.dark-mode button:hover {
-    background-color: #777; /* Button hover color in dark mode */
+    font-size: 14px;
 }
